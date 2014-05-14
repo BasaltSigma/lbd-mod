@@ -35,15 +35,18 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 
 /**
- * 
+ * The main class for my mod. This contains everything, and is essentially the backbone
+ * of the mod. 
  * @author Arbiter
- *
+ * @version 0.2.0
  */
 @Mod(modid=ModLBD.name, name="kris91268's Light Bridges and Doors", version="0.2.0", useMetadata=true)
 public class ModLBD
 {
 	public static final String name = "LightBridgesAndDoors";
-	public static final PacketPipeline packets = new PacketPipeline();
+	public static final PacketPipeline packets = new PacketPipeline(); // packet instance
+	
+	/** configurable variables */
 	public static int bridgeLength;
 	public static int doorHeight;
 	public static int railLength;
@@ -51,6 +54,8 @@ public class ModLBD
 	public static boolean doesDoorHurt;
 	public static boolean enableLinkedBridges;
 	public static boolean shouldAnimate;
+	
+	/** The blocks */
 	public static final Block lightBridgeSource = new BlockLightBridgeSource(Material.iron);
 	public static final Block lightBridgeSourceActive = new BlockLightBridgeSourceActivated(Material.glass);
 	public static final Block lightBridge = new BlockLightBridgeSection(Material.glass);
@@ -69,6 +74,11 @@ public class ModLBD
 	@Instance("LightBridgesAndDoors")
 	public static ModLBD instance;
 	
+	/**
+	 * The pre initialization method. Reads config file and registers all blocks
+	 * and tile entities
+	 * @param event
+	 */
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{ 
@@ -82,6 +92,7 @@ public class ModLBD
 		shouldAnimate = config.get("Advanced", "Should the light blocks be animated?", true).getBoolean(true);
 		enableLinkedBridges = config.get("Advanced", "Should the light emitters have linked activation? Disable if it does not work.", true).getBoolean(true);
 		config.save();
+		// So no one can configure the bridges etc. to go past the set limits. To prohibit overpowerness
 		if ((bridgeLength) > 100 || (doorHeight > 100) || (barrierLength > 100))
 		{
 			throw new IllegalArgumentException("You cannot have the bridge, barrier, or door length/height past 100");
@@ -114,6 +125,11 @@ public class ModLBD
 		GameRegistry.registerTileEntity(TileEntityLightBarrierSourceActivated.class, "TileEntityLightBarrierSourceActivated");
 		GameRegistry.registerTileEntity(TileEntityGravityLift.class, "TileEntityGravityLift");
 	}
+	/**
+	 * The method where the packet is initialized and recipes are registered. Packets
+	 * are also registered here as well.
+	 * @param event
+	 */
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
@@ -124,6 +140,9 @@ public class ModLBD
 		packets.registerPacket(PacketUpdateHeight.class);
 		packets.registerPacket(PacketUpdateTE.class);
 	}
+	/**
+	 * Holds all of the recipes for the mod
+	 */
 	public void registerRecipes()
 	{
 		GameRegistry.addRecipe(new ItemStack(lightBridgeSource, 2), new Object[] {"XWX", "YZY", "XWX", 'X', Items.redstone, 'Y', Items.iron_ingot, 'Z', Items.diamond, 'W', Items.glowstone_dust});
@@ -132,6 +151,10 @@ public class ModLBD
 		GameRegistry.addRecipe(new ItemStack(lightRailSource, 1), new Object[] {"XYX", "XZX", "XAX", 'X', Items.iron_ingot, 'Y', Items.glowstone_dust, 'Z', Items.diamond, 'A', Blocks.detector_rail});
 		GameRegistry.addRecipe(new ItemStack(lightBarrierSource, 2), new Object[] {"YX", "ZW", "YX", 'X', Items.redstone, 'Y', Items.iron_ingot, 'Z', Items.diamond, 'W', Items.glowstone_dust});
 	}
+	/**
+	 * Post initializes the packet handler
+	 * @param event
+	 */
 	@EventHandler
 	public void postinit(FMLPostInitializationEvent event)
 	{

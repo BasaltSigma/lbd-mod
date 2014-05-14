@@ -11,6 +11,10 @@ import cpw.mods.fml.common.network.IGuiHandler;
  */
 public class CommonProxy
 {
+	/**
+	 * Registers any rendering code that needs to be registered.
+	 * E.g. Tile entity renderers. 
+	 */
 	public void registerRenderers()
 	{
 		// Nullified, due to no special serverside rendering

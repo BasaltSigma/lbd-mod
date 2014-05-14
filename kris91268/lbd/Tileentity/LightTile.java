@@ -4,9 +4,9 @@ import net.minecraft.world.World;
 
 /**
  * Interface to define the guidelines of most tile entities in this mod. Must be used <br />
- * by every tile entity for that matter. 
+ * by every tile entity representing a light device for that matter. Not to be used on other tile 
+ * entities that do not have that purpose.
  * @author Arbiter
- * @version 0.2.0
  */
 public interface LightTile
 {

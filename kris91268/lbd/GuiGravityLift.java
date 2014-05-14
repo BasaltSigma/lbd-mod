@@ -28,8 +28,15 @@ public class GuiGravityLift extends GuiContainer
 {
 	private static final ResourceLocation texture = new ResourceLocation("lbd:textures/gui/gravLift.png");
 	public TileEntityGravityLift tileEntity;
+	/** the buttons for changing the value */
 	private GuiButton doneButton, decByPointZeroOne, decByPointOne, incByPointOne, incByOnePointZero;
 	private GuiTextField number;
+	/**
+	 * The height set is stored as an int, not as a float because of the flimsy floating point arithmetic
+	 * that java performs. It can output a infinetly long decimal number instead of a standard number that I want,
+	 * therefore I have stored the data as an int and have written a method to convert it to an accurate float.<br /><br />
+	 * See here for more details {@link http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html}
+	 */
 	private int liftHeight;
 	
 	public GuiGravityLift(TileEntityGravityLift tileEntity)
@@ -62,6 +69,7 @@ public class GuiGravityLift extends GuiContainer
 	@Override
 	public void initGui()
 	{
+		// add all buttons and set up gui
 		this.buttonList.clear();
 		this.buttonList.add(this.doneButton = new GuiButton(0, this.width / 2 - 25, this.height / 4 + 38, 50, 20, "Done"));
 		this.buttonList.add(this.decByPointZeroOne = new GuiButton(1, this.width / 2 - 75, this.height / 4 + 3, 40, 20, "-0.1"));
@@ -129,6 +137,12 @@ public class GuiGravityLift extends GuiContainer
 			break;
 		}
 	}
+	/**
+	 * Converts the passed in integer to a float. Should not be used anywhere other than here. 
+	 * It is tailored to suit the needs of this class. 
+	 * @param num The integer to convert. Must not be longer than 2 digits.
+	 * @return A float representation value, with the decimal point between the two digits of the int passed in.
+	 */
 	private static float intToFloat(int num)
 	{
 		String integer = Integer.toString(num);
@@ -147,6 +161,11 @@ public class GuiGravityLift extends GuiContainer
 		return Float.parseFloat(integer);
 	}
 }
+/**
+ * This class is empty because there is no need for a functioning container in conjunction with the gui.
+ * @author Arbiter
+ *
+ */
 class ContainerGravityLift extends Container
 {
 	@Override

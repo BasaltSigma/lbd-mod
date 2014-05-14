@@ -9,7 +9,7 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 
 /**
- * Based off a class in Tinker's Construct
+ * Based off a class in Tinker's Construct. Not written by me. 
  * @author Arbiter
  *
  */

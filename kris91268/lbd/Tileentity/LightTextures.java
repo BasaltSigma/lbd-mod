@@ -4,23 +4,27 @@ import net.minecraft.util.ResourceLocation;
 
 /**
  * A final class which holds all of my ResourceLocations for the rendering frames.
+ * Ensures that only one copy of each ResourceLocation is ever created, thus saving memory.
  * @author Arbiter
  *
  */
 public final class LightTextures
 {
 	/** The textures */
-	public transient static final ResourceLocation[] bridgeTextures;
-	public transient static final ResourceLocation[] barrierTextures;
-	public transient static final ResourceLocation[] doorTextures;
-	public transient static final ResourceLocation gravityTexture;
+	public static final ResourceLocation[] bridgeTextures;
+	public static final ResourceLocation[] barrierTextures;
+	public static final ResourceLocation[] doorTextures;
+	public static final ResourceLocation gravityTexture;
 	
+	/**
+	 * Initializer for the resource locations. 
+	 */
 	static
 	{
 		gravityTexture = new ResourceLocation("lbd:textures/entity/lbd/gravLift.png");
-		bridgeTextures = new ResourceLocation[19];
-		barrierTextures = new ResourceLocation[16];
-		doorTextures = new ResourceLocation[16];
+		bridgeTextures = new ResourceLocation[19]; // there are only 18 frames
+		barrierTextures = new ResourceLocation[16]; // "     "   "   16  "
+		doorTextures = new ResourceLocation[16]; //    "    "    "   16  "
 		for (int i = 0; i < bridgeTextures.length; i++)
 		{
 			bridgeTextures[i] = new ResourceLocation("lbd:textures/entity/lbd/lbsource/lbsource_" + i + ".png");
@@ -32,5 +36,5 @@ public final class LightTextures
 		}
 	}
 	
-	private LightTextures() {}
+	private LightTextures() {} // prevents instantation
 }

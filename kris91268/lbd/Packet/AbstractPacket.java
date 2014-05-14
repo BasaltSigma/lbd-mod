@@ -5,7 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
 
 /**
- * 
+ * Not written by me. Adapted from a tutorial on the minecraft forge wiki tutorial section.
  * @author Arbiter
  *
  */

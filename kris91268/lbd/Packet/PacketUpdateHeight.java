@@ -10,7 +10,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 /**
- * 
+ * The packet to update the height of a gravity lift
  * @author Arbiter
  *
  */

@@ -22,6 +22,15 @@ public class TileEntityLightBarrierSectionRenderer extends TileEntitySpecialRend
 	private ModelLightBarrierSection model = new ModelLightBarrierSection();
 	private byte index;
 	
+	/**
+	 * The texture to be bound changes every 5 cycles of this method, thus creating an
+	 * animation. The code is the same for every light block/device and not just in this class. Can be disabled.
+	 * @param par1
+	 * @param par2
+	 * @param par3
+	 * @param par4
+	 * @param par5
+	 */
 	public void renderAModelAt(TileEntityLightBarrierSection par1, double par2, double par3, double par4, float par5)
 	{
 		int par6 = 0;
@@ -36,7 +45,7 @@ public class TileEntityLightBarrierSectionRenderer extends TileEntitySpecialRend
 			index++;
 			if (index / 5 == LightTextures.barrierTextures.length)
 			{
-				index = 0;
+				index = 0; // reset the index to 0
 			}
 		}
 		GL11.glPushMatrix();

@@ -5,14 +5,32 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 
 /**
- * 
+ * A statically handled class to activate any adjacent light devices thus needing only one source of a redstone
+ * signal. <br />
+ * The activate/deactivate methods simply activate or deactivate any adjacent light devices of the same type near them.<br /><br />
+ * The last 3 methods simply check whether an adjacent light device is active. <br /><br />
+ * All parameters are the same for each method in the class
+ * @param world The world
+ * @param x X pos
+ * @param y Y pos
+ * @param z Z pos
+ * @param meta The metadata
  * @author Arbiter
  *
  */
 public final class LinkMaker
 {
-	private LinkMaker() {}
+	private LinkMaker() {} // prevents instantation of this class
 	
+	/**
+	 * Returns an array of the blocks surrounding the block at the coordinates
+	 * @param world The world
+	 * @param x X pos
+	 * @param y Y pos
+	 * @param z Z pos
+	 * @param meta Block metadata
+	 * @return An array of the surrounding blocks.
+	 */
 	private static Block[] getAdjacentBlocks(World world, int x, int y, int z, int meta)
 	{
 		Block[] adjacentBlocks = new Block[2];
@@ -29,6 +47,15 @@ public final class LinkMaker
 		}
 		return adjacentBlocks;
 	}
+	/**
+	 * Returns an array of the metadata of the adjacent blocks surrounding the coordinates. 
+	 * @param world The world
+	 * @param x X pos
+	 * @param y Y pos
+	 * @param z Z pos
+	 * @param meta The metadata
+	 * @return An array of the metadata adjacent to the block.
+	 */
 	private static int[] getAdjacentMetadata(World world, int x, int y, int z, int meta)
 	{
 		int[] metas = new int[2];

@@ -28,7 +28,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 /**
- * Not written by me.
+ * Not written by me. Adapted from a tutorial on the minecraft forge wiki tutorial section
  * @author Arbiter
  *
  */

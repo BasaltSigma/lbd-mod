@@ -1,0 +1,13 @@
+﻿tile.lbd.gravityLift.name=Vægt Elevator
+tile.lbd.lightBarrierSection.name=Lysbarriere Sektion
+tile.lbd.lightBarrierSource.name=Lysbarriere
+tile.lbd.lightBarrierSourceActive.name=Aktiveret Lysbarriere
+tile.lbd.lightBridgeSection.name=Lysbro Sektion
+tile.lbd.lightBridgeSource.name=Lysbro
+tile.lbd.lightBridgeSourceActive.name=Aktiveret Lysbro
+tile.lbd.lightDoorSection.name=Lysdør Sektion
+tile.lbd.lightDoorSource.name=Lys Dør 
+tile.lbd.lightDoorSourceActive.name=Aktiveret Lysdør 
+tile.lbd.lightRailSection.name=Lysskinne Sektion
+tile.lbd.lightRailSource.name=Lysskinne
+tile.lbd.lightRailSourceActive.name=Aktiveret Lysskinne

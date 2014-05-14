@@ -1,0 +1,13 @@
+﻿tile.lbd.gravityLift.name=重力升降机
+tile.lbd.lightBarrierSection.name=光屏障部分
+tile.lbd.lightBarrierSource.name=光屏障
+tile.lbd.lightBarrierSourceActive.name=活性光屏障
+tile.lbd.lightBridgeSection.name=光桥部分
+tile.lbd.lightBridgeSource.name=光桥
+tile.lbd.lightBridgeSourceActive.name=活性光桥
+tile.lbd.lightDoorSection.name=光门部分
+tile.lbd.lightDoorSource.name=光门
+tile.lbd.lightDoorSourceActive.name=活性光门
+tile.lbd.lightRailSection.name=光轨部分
+tile.lbd.lightRailSource.name=光轨
+tile.lbd.lightRailSourceActive.name=活性光轨

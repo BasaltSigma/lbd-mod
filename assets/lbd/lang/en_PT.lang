@@ -1,0 +1,13 @@
+﻿tile.gravityLift.name=Gravity Lift
+tile.lightBarrierSection.name=Light Barrier Section
+tile.lightBarrierSource.name=Light Barrier
+tile.lightBarrierSourceActive.name=Activated Light Barrier
+tile.lightBridgeSection.name=Light Bridge Section
+tile.lightBridgeSource.name=Light Bridge
+tile.lightBridgeSourceActive.name=Activated Light Bridge
+tile.lightDoorSection.name=Light Door Section
+tile.lightDoorSource.name=Light Door
+tile.lightDoorSourceActive.name=Activated Light Door
+tile.lightRailSection.name=Light Rail Section
+tile.lightRailSource.name=Light Rail
+tile.lightRailSourceActive.name=Activated Light Rail

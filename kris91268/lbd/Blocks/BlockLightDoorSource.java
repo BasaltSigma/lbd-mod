@@ -56,7 +56,7 @@ public class BlockLightDoorSource extends BlockContainer implements ILightSource
 		{
 			if (par1World.isAirBlock(par2, par7, par4))
 			{
-				par1World.setBlock(par2, par7, par4, ModLBD.lightDoorSection, par5 == 5 ? 0 : par5, 2);
+				par1World.setBlock(par2, par7, par4, ModLBD.lightDoorSection, par5, 2);
 			}
 			else
 			{

@@ -34,7 +34,6 @@ public class TileEntityLightBridgeSectionRenderer extends TileEntitySpecialRende
 		{
 			par6 = par1TileEntityLightBridgeSection.getBlockMetadata();
 		}
-		short par7 = (short)(par6 * 90);
 		this.bindTexture(LightTextures.bridgeTextures[index / 5]);
 		if (ModLBD.shouldAnimate)
 		{
@@ -46,7 +45,7 @@ public class TileEntityLightBridgeSectionRenderer extends TileEntitySpecialRende
 		}
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float)par2 + 0.5F, (float)par3 + 1.5F, (float)par4 + 0.5F);
-		GL11.glRotatef((float)par7, 0.0F, 1.0F, 0.0F);
+		GL11.glRotatef((float)(par6 == 5 ? 0 : par6 * 90), 0.0F, 1.0F, 0.0F);
 		GL11.glScalef(1.0F, -1.0F, -1.0F);
 		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glEnable(GL11.GL_LIGHTING);

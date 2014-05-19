@@ -27,23 +27,6 @@ public class TileEntityLightDoorSourceActivatedRenderer extends TileEntitySpecia
 		{
 		    par6 = par1.getBlockMetadata();
 		}
-		short par7 = 0;
-		if (par6 == 0)
-		{
-			par7 = 0;
-		}
-		if (par6 == 1)
-		{
-			par7 = 90;
-		}
-		if (par6 == 2)
-		{
-			par7 = 180;
-		}
-		if (par6 == 3)
-		{
-			par7 = 270;
-		}
 		this.bindTexture(LightTextures.doorTextures[index / 5]);
 		if (ModLBD.shouldAnimate)
 		{
@@ -55,7 +38,7 @@ public class TileEntityLightDoorSourceActivatedRenderer extends TileEntitySpecia
 		}
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float)par2 + 0.5F, (float)par3 + 1.5F, (float)par4 + 0.5F);
-		GL11.glRotatef((float)par7, 0.0F, 1.0F, 0.0F);
+		GL11.glRotatef((float)(par6 == 5 ? 0 : par6 * 90), 0.0F, 1.0F, 0.0F);
 		GL11.glScalef(1.0F, -1.0F, -1.0F);
 		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glEnable(GL11.GL_LIGHTING);

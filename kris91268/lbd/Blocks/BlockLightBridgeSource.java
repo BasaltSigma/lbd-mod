@@ -59,14 +59,15 @@ public class BlockLightBridgeSource extends BlockContainer implements ILightSour
 	public void activate(World par1World, int par2, int par3, int par4, int par5, boolean continued)
 	{
 		 // 2 is west facing, 3 is south facing, 1 is north facing, 5 is east facing
-		if (par5 == 5)
+		switch (par5)
 		{
-			par1World.setBlock(par2, par3, par4, ModLBD.lightBridgeSourceActive, 5, 2);
+		case 5:
+			par1World.setBlock(par2, par3, par4, ModLBD.lightBridgeSourceActive, par5, 2);
 			outer : for (int par6 = par2 + 1; par6 <= par2 + ModLBD.bridgeLength; ++par6)
 			{
 				if (par1World.isAirBlock(par6, par3, par4))
 				{
-					par1World.setBlock(par6, par3, par4, ModLBD.lightBridge, 5, 2);
+					par1World.setBlock(par6, par3, par4, ModLBD.lightBridge, par5, 2);
 				}
 				else
 				{
@@ -88,15 +89,14 @@ public class BlockLightBridgeSource extends BlockContainer implements ILightSour
 					break;
 				}
 			}
-		}
-		if (par5 == 1)
-		{
-			par1World.setBlock(par2, par3, par4, ModLBD.lightBridgeSourceActive, 1, 2);
+			break;
+		case 1:
+			par1World.setBlock(par2, par3, par4, ModLBD.lightBridgeSourceActive, par5, 2);
 			outer : for (int par6 = par4 - 1; par6 >= par4 - ModLBD.bridgeLength; --par6)
 			{
 				if (par1World.isAirBlock(par2, par3, par6))
 				{
-					par1World.setBlock(par2, par3, par6, ModLBD.lightBridge, 1, 2);
+					par1World.setBlock(par2, par3, par6, ModLBD.lightBridge, par5, 2);
 				}
 				else
 				{
@@ -118,15 +118,14 @@ public class BlockLightBridgeSource extends BlockContainer implements ILightSour
 					break;
 				}
 			}
-		}
-		if (par5 == 2)
-		{
-			par1World.setBlock(par2, par3, par4, ModLBD.lightBridgeSourceActive, 2, 2);
+			break;
+		case 2:
+			par1World.setBlock(par2, par3, par4, ModLBD.lightBridgeSourceActive, par5, 2);
 			outer : for (int par6 = par2 - 1; par6 >= par2 - ModLBD.bridgeLength; --par6)
 			{
 				if (par1World.isAirBlock(par6, par3, par4))
 				{
-					par1World.setBlock(par6, par3, par4, ModLBD.lightBridge, 2, 2);
+					par1World.setBlock(par6, par3, par4, ModLBD.lightBridge, par5, 2);
 				}
 				else
 				{
@@ -148,15 +147,14 @@ public class BlockLightBridgeSource extends BlockContainer implements ILightSour
 					break;
 				}
 			}
-		}
-		if (par5 == 3)
-		{
-			par1World.setBlock(par2, par3, par4, ModLBD.lightBridgeSourceActive, 3, 2);
+			break;
+		case 3:
+			par1World.setBlock(par2, par3, par4, ModLBD.lightBridgeSourceActive, par5, 2);
 			outer : for (int par6 = par4 + 1; par6 <= par4 + ModLBD.bridgeLength; ++par6)
 			{
 				if (par1World.isAirBlock(par2, par3, par6))
 				{
-					par1World.setBlock(par2, par3, par6, ModLBD.lightBridge, 3, 2);
+					par1World.setBlock(par2, par3, par6, ModLBD.lightBridge, par5, 2);
 				}
 				else
 				{
@@ -178,6 +176,7 @@ public class BlockLightBridgeSource extends BlockContainer implements ILightSour
 					break;
 				}
 			}
+			break;
 		}
 		TileEntity passover = par1World.getTileEntity(par2, par3, par4);
 		if (passover instanceof TileEntityLightBridgeSourceActivated)
@@ -220,8 +219,7 @@ public class BlockLightBridgeSource extends BlockContainer implements ILightSour
 		{			
 			if (!this.powered && par1World.isBlockIndirectlyGettingPowered(par2, par3, par4))
             {
-            	this.activate(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), false);           	
-            	
+            	this.activate(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), false);
             }
 		}
 	}
@@ -239,7 +237,7 @@ public class BlockLightBridgeSource extends BlockContainer implements ILightSour
 		int par10 = par9;
 		if (par9 == 1 && par1World.isSideSolid(par2, par3, par4 + 1, NORTH, true))
 		{
-			par10 = 3;
+			par10 = 1;
 		}
 		if (par9 == 3 && par1World.isSideSolid(par2, par3, par4 - 1, SOUTH, true))
 		{
@@ -330,8 +328,7 @@ public class BlockLightBridgeSource extends BlockContainer implements ILightSour
             	this.activate(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), false);
             }
         }
-    }  
-	@Override
+    }
 	public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLivingBase par5EntityLiving, ItemStack par6ItemStack)
 	{
 		int par7 = MathHelper.floor_double((double)(par5EntityLiving.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;

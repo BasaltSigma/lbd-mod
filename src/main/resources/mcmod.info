@@ -1,16 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
+  "modid": "lbd",
+  "name": "Light Bridges and Doors",
+  "description": "Adds useful blocks which enables construction of a bridge, barrier, or roof in mere seconds",
+  "version": "3.0",
+  "mcversion": "$1.2.12",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["kris91268"],
   "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
+  "screenshots": []
 }
 ]

@@ -18,6 +18,7 @@ public class BlockLightBridge extends Block {
         setHardness(2.0f);
         setCreativeTab(CreativeTabs.REDSTONE);
         setUnlocalizedName("light_bridge_source");
+        setRegistryName("light_bridge_source");
     }
 
     @Override

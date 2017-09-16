@@ -31,7 +31,9 @@ public class RotatableTileEntity extends TileEntity {
 
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound tag) {
-        return writeToNBT(new NBTTagCompound());
+        super.writeToNBT(tag);
+        tag.setInteger("facing", facing.getIndex());
+        return tag;
     }
 
     @Override

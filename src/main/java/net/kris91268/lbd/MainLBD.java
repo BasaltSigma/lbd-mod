@@ -2,6 +2,7 @@ package net.kris91268.lbd;
 
 import net.kris91268.lbd.block.BlockLightBridge;
 import net.minecraft.block.Block;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -17,13 +18,16 @@ import org.apache.http.config.RegistryBuilder;
  * @author kris91268
  */
 
-@Mod(modid = "lbd", version = "3.0", useMetadata = true)
+@Mod(modid = MainLBD.MODID, version = "3.0", useMetadata = true)
+@Mod.EventBusSubscriber
 public class MainLBD {
 
-    private BlockLightBridge lightBridge = new BlockLightBridge();
+    public static final String MODID = "lbd";
+
+    private static BlockLightBridge lightBridge = new BlockLightBridge();
 
     @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
+    public static void preInit(FMLPreInitializationEvent event) {
         Configuration config = new Configuration(event.getSuggestedConfigurationFile());
         config.load();
 
@@ -31,18 +35,13 @@ public class MainLBD {
     }
 
     @SubscribeEvent
-    public void registerBlocks(RegistryEvent.Register<Block> event) {
+    public static void registerBlocks(RegistryEvent.Register<Block> event) {
         final IForgeRegistry<Block> registry = event.getRegistry();
         registry.register(lightBridge);
     }
 
     @Mod.EventHandler
-    public void init(FMLInitializationEvent event) {
-
-    }
-
-    @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
+    public static void init(FMLInitializationEvent event) {
 
     }
 }

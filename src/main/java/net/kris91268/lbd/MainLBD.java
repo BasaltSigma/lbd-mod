@@ -2,6 +2,7 @@ package net.kris91268.lbd;
 
 import net.kris91268.lbd.block.BlockLightBridge;
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
@@ -20,9 +21,12 @@ import org.apache.http.config.RegistryBuilder;
 
 @Mod(modid = MainLBD.MODID, version = "3.0", useMetadata = true)
 @Mod.EventBusSubscriber
-public class MainLBD {
+public final class MainLBD {
 
     public static final String MODID = "lbd";
+
+    @Mod.Instance
+    public static MainLBD instance;
 
     private static BlockLightBridge lightBridge = new BlockLightBridge();
 
@@ -38,6 +42,11 @@ public class MainLBD {
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         final IForgeRegistry<Block> registry = event.getRegistry();
         registry.register(lightBridge);
+    }
+
+    @SubscribeEvent
+    public static void registerItems(RegistryEvent.Register<Item> event) {
+
     }
 
     @Mod.EventHandler

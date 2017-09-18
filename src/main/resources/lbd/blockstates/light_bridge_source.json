@@ -1,0 +1,39 @@
+{
+  "defaults": {
+    "textures": {
+      "all": "lbd:blocks/light_bridge_source"
+    },
+    "model": "lbd:models/light_bridge_source",
+    "uvlock": true
+  },
+  "variants": {
+    "facing": {
+      "down": {},
+      "up": {},
+      "north": {
+        "submodel": {
+          "model": "lbd:models/light_bridge_source",
+          "y": 0
+        }
+      },
+      "south": {
+        "submodel": {
+          "model": "lbd:models/light_bridge_source",
+          "y": 180
+        }
+      },
+      "east": {
+        "submodel": {
+          "model": "lbd:models/light_bridge_source",
+          "y": 90
+        }
+      },
+      "west": {
+        "submodel": {
+          "model": "lbd:models/light_bridge_source",
+          "y": 270
+        }
+      }
+    }
+  }
+}

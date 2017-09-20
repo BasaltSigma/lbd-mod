@@ -4,6 +4,7 @@ import net.kris91268.lbd.block.BlockLightBridge;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -42,11 +43,6 @@ public final class MainLBD {
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         final IForgeRegistry<Block> registry = event.getRegistry();
         registry.register(lightBridge);
-    }
-
-    @SubscribeEvent
-    public static void registerItems(RegistryEvent.Register<Item> event) {
-
     }
 
     @Mod.EventHandler

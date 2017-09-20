@@ -1,0 +1,44 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "texture": "lbd:light_bridge_source",
+      "active": "lbd:light_section"
+    },
+    "model": "lbd:light_bridge",
+    "uvlock": true
+  },
+  "variants": {
+    "active": {
+      "false": {
+
+      },
+      "true": {
+        "submodel": {
+          "model": "lbd:light_block"
+        },
+        "texture": "lbd:light_section"
+      }
+    },
+    "facing": {
+      "down": {
+
+      },
+      "east": {
+        "y": 90
+      },
+      "north": {
+        "y": 0
+      },
+      "south": {
+        "y": 180
+      },
+      "up": {
+
+      },
+      "west": {
+        "y": 270
+      }
+    }
+  }
+}
